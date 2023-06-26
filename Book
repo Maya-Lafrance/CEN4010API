@@ -1,0 +1,94 @@
+public class book {
+    private String isbn;
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    private String title;
+    private String author;
+    
+}
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class BookRepository {
+    private Map<String, Book> books;
+
+    public BookRepository() {
+        this.books = new HashMap<>();
+    }
+
+    public void addBook(Book book) {
+        books.put(book.getIsbn(), book);
+    }
+
+    public Book getBookByIsbn(String isbn) {
+        return books.get(isbn);
+    }
+}
+
+import java.util.Scanner;
+
+public class AdminController {
+    private BookRepository bookRepository;
+
+    public AdminController(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
+    public void createBook() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter ISBN: ");
+        String isbn = scanner.nextLine();
+
+        System.out.print("Enter title: ");
+        String title = scanner.nextLine();
+
+        System.out.print("Enter author: ");
+        String author = scanner.nextLine();
+
+        Book book = new Book(isbn, title, author);
+        bookRepository.addBook(book);
+        System.out.println("Book created successfully!");
+    }
+
+    public void getBookByIsbn() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter ISBN: ");
+        String isbn = scanner.nextLine();
+
+        Book book = bookRepository.getBookByIsbn(isbn);
+        if (book != null) {
+            System.out.println("Book found:");
+            System.out.println("ISBN: " + book.getIsbn());
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Author: " + book.getAuthor());
+        } else {
+            System.out.println("Book not found!");
+        }
+    }
+}
