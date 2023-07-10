@@ -1,14 +1,28 @@
 public class Book {
 
 
-    public Book(String isbn, String title, String author) {
+     private String isbn;
+    private String title;
+    private String description;
+    private double price;
+    private String author;
+    private String genre;
+    private String publisher;
+    private int yearPublished;
+    private int copiesSold;
+
+    public Book(String isbn, String title, String description, double price, String author, String genre,
+                String publisher, int yearPublished, int copiesSold) {
         this.isbn = isbn;
         this.title = title;
+        this.description = description;
+        this.price = price;
         this.author = author;
+        this.genre = genre;
+        this.publisher = publisher;
+        this.yearPublished = yearPublished;
+        this.copiesSold = copiesSold;
     }
-    private String isbn;
-    private String title;
-    private String author;
 
     public String getIsbn() {
         return isbn;
@@ -26,6 +40,22 @@ public class Book {
         this.title = title;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     public String getAuthor() {
         return author;
     }
@@ -33,6 +63,39 @@ public class Book {
     public void setAuthor(String author) {
         this.author = author;
     }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public int getYearPublished() {
+        return yearPublished;
+    }
+
+    public void setYearPublished(int yearPublished) {
+        this.yearPublished = yearPublished;
+    }
+
+    public int getCopiesSold() {
+        return copiesSold;
+    }
+
+    public void setCopiesSold(int copiesSold) {
+        this.copiesSold = copiesSold;
+    }
+}
     
 }
 
@@ -93,6 +156,8 @@ public class AdminController {
             System.out.println("ISBN: " + book.getIsbn());
             System.out.println("Title: " + book.getTitle());
             System.out.println("Author: " + book.getAuthor());
+            System.out.println("Author: " + book.getyearPublished());
+            System.out.println("Author: " + book.getcopiesSold());
         } else {
             System.out.println("Book not found!");
         }
