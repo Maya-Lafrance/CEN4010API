@@ -1,3 +1,8 @@
+import models.db_book_model.Books;
+import models.db_book_model.booksSchema;
+import org.hibernate.exception.SQLGrammarException;
+
+
 @Entity
 @Table(name = "wishlist")
 public class Wishlist {
