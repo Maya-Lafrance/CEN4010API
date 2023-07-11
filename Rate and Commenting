@@ -4,6 +4,7 @@ public class Rate {
     private Integer rating;
     private String comment;
     private String time;
+    private String caculated rating;
 
     public Rate(Integer isbn, String username, Integer rating, String comment, String time) {
         this.isbn = isbn;
@@ -11,6 +12,7 @@ public class Rate {
         this.rating = rating;
         this.comment = comment;
         this.time = time;
+        this.caculatedrating = rating;
     }
 
     // Getters and setters
@@ -53,4 +55,12 @@ public class Rate {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+public Integer getcaculatedrating() {
+        return caculatedrating;
+    }
+
+    public void setcaculatedrating(Integer isbn) {
+        this.caculatedrating = caculatedrating;
     }
