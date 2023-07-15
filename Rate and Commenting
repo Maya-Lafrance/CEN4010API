@@ -1,0 +1,66 @@
+public class Rate {
+    private Integer isbn;
+    private String username;
+    private Integer rating;
+    private String comment;
+    private String time;
+    private String caculated rating;
+
+    public Rate(Integer isbn, String username, Integer rating, String comment, String time) {
+        this.isbn = isbn;
+        this.username = username;
+        this.rating = rating;
+        this.comment = comment;
+        this.time = time;
+        this.caculatedrating = rating;
+    }
+
+    // Getters and setters
+
+    public Integer getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(Integer isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+public Integer getcaculatedrating() {
+        return caculatedrating;
+    }
+
+    public void setcaculatedrating(Integer isbn) {
+        this.caculatedrating = caculatedrating;
+    }
