@@ -1,0 +1,70 @@
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+public class ShoppingCartController {
+
+
+    private UserRepository userRepository;
+
+ 
+    public double getSubtotal(@RequestParam("userId") Long userId) {
+        User user = userRepository.findById(userId).orElse(null);
+        if (user == null) {
+
+            return 0.0;
+        }
+
+        double subtotal = user.getCartItems().stream()
+                .mapToDouble(CartItem::getPrice)
+                .sum();
+
+        return subtotal;
+    }
+}
+
+public void addToCart(@RequestParam("bookId") Long bookId, @RequestParam("userId") Long userId) {
+    User user = userRepository.findById(userId).orElse(null);
+    if (user == null) {
+        // Handle case when user is not found
+        return;
+    }
+
+    Book book = bookRepository.findById(bookId).orElse(null);
+    if (book == null) {
+        // Handle case when book is not found
+        return;
+    }
+
+    CartItem cartItem = new CartItem();
+    cartItem.setBook(book);
+    cartItem.setPrice(book.getPrice());
+
+    user.getCartItems().add(cartItem);
+    userRepository.save(user);
+}
+
+
+public List<Book> getCartItems(@RequestParam("userId") Long userId) {
+    User user = userRepository.findById(userId).orElse(null);
+    if (user == null) {
+        // Handle case when user is not found
+        return Collections.emptyList();
+    }
+
+    List<Book> books = user.getCartItems().stream()
+            .map(CartItem::getBook)
+            .collect(Collectors.toList());
+
+    return books;
+}
+
+public void deleteFromCart(@RequestParam("bookId") Long bookId, @RequestParam("userId") Long userId) {
+    User user = userRepository.findById(userId).orElse(null);
+    if (user == null) {
+        // Handle case when user is not found
+        return;
+    }
+
+    user.getCartItems().removeIf(cartItem -> cartItem.getBook().getId().equals(bookId));
+    userRepository.save(user);
+}
