@@ -58,13 +58,5 @@ public List<Book> getCartItems(@RequestParam("userId") Long userId) {
     return books;
 }
 
-public void deleteFromCart(@RequestParam("bookId") Long bookId, @RequestParam("userId") Long userId) {
-    User user = userRepository.findById(userId).orElse(null);
-    if (user == null) {
-        // Handle case when user is not found
-        return;
-    }
 
-    user.getCartItems().removeIf(cartItem -> cartItem.getBook().getId().equals(bookId));
-    userRepository.save(user);
 }
