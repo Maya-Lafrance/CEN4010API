@@ -29,10 +29,7 @@ public void addToCart(@RequestParam("bookId") Long bookId, @RequestParam("userId
         return;
     }
 
-    Book book = bookRepository.findById(bookId).orElse(null);
-    if (book == null) {
-        // Handle case when book is not found
-        return;
+
     }
 
     CartItem cartItem = new CartItem();
