@@ -1,9 +1,4 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
-package com.geekText.geekText.Entity;
+package com.Text.Text.Entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
