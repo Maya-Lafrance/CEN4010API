@@ -1,4 +1,4 @@
-package com.geekText.geekText.Controller;
+package com.Text.Text.Controller;
 
 import com.geekText.geekText.Entity.Wishlist;
 import com.geekText.geekText.Service.WishlistService;
