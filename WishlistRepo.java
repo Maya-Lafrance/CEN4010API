@@ -1,4 +1,4 @@
-package com.geekText.geekText.Repository;
+package com.Text.Text.Repository;
 
 import com.geekText.geekText.Entity.Wishlist;
 import org.springframework.data.jpa.repository.JpaRepository;
