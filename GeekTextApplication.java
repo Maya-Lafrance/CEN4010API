@@ -1,4 +1,4 @@
-package com.geekText.geekText;
+package com.Text.Text;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
